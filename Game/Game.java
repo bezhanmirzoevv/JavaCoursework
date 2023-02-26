@@ -1,5 +1,6 @@
 package Game;
 
+import city.cs.engine.DebugViewer;
 import city.cs.engine.SimulationSettings;
 
 import javax.swing.*;
@@ -13,7 +14,7 @@ public class Game {
         GameView view = new GameView(world);
 
         //controlling player
-        Controller controller = new Controller(world.getPlayer());
+        Controller controller = new Controller(world.getPlayer(), world);
         view.addKeyListener(controller);
 
         //view.addMouseListener(new GameView(view));
@@ -28,9 +29,10 @@ public class Game {
         frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
+        SimulationSettings settings = new SimulationSettings(64);
 
         //Debugging view
-        //JFrame debugView = new DebugViewer(world, 500, 500);
+        //JFrame debugView = new DebugViewer(world, 1000, 500);
 
         world.start();
         view.requestFocus();

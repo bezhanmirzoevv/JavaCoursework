@@ -1,4 +1,4 @@
-package Game;//package CourseworkGame;
+package Game;;
 
 import city.cs.engine.*;
 import city.cs.engine.Shape;
@@ -9,7 +9,8 @@ import java.awt.*;
 public class GameWorld extends World {
 
     private Player player;
-    private Vec2 platform = new Vec2(-8f, -4f);
+    private Obstacle obstacle1 = new Obstacle(this);;
+    private StaticBody platform1;
     public GameWorld(){
         super();
 
@@ -21,23 +22,25 @@ public class GameWorld extends World {
 
         // make a suspended platform
         Shape platformShape = new BoxShape(3, 0.5f);
-        StaticBody platform1 = new StaticBody(this, platformShape);
-        platform1.setPosition(platform);
+        platform1 = new StaticBody(this, platformShape);
+        platform1.setPosition(new Vec2(-8f, -4f));
 
         //initialising player
         player = new Player(this);
         player.setPosition(new Vec2(-22f, -8.5f));
 
         //making obstacle
-        Obstacle obstacle1 = new Obstacle(this);
-        obstacle1.setPosition(obstacle1.getPostition());
+
+        obstacle1.setPosition(obstacle1.position);
         obstacle1.setFillColor(Color.MAGENTA);
     }
 
     public Player getPlayer(){
         return this.player;
     }
-    public void movePlatform(){
-        this.platform.x -= 1f;
+
+    public void gameRunning(){
+        this.obstacle1.startWalking(-5);
+        this.platform1.move(new Vec2(-0.5f, 0));
     }
 }

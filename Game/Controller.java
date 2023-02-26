@@ -5,9 +5,11 @@ import java.awt.event.KeyListener;
 
 public class Controller implements KeyListener {
     public Player player;
+    private GameWorld world;
 
-    public Controller(Player player){
+    public Controller(Player player, GameWorld world){
         this.player = player;
+        this.world = world;
     }
 
     @Override
@@ -18,7 +20,10 @@ public class Controller implements KeyListener {
         int key = keys.getKeyCode();
         System.out.println("Key pressed " + keys.getKeyChar());
         if (key == KeyEvent.VK_D) {
-            player.startWalking(5);
+            //player.startWalking(5);
+            world.gameRunning();
+        } else if (key == KeyEvent.VK_A){
+            player.startWalking(-5);
         } else if (key == KeyEvent.VK_SPACE){
             player.jump(15);
         }
