@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/Game/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Obstacle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameWorld.class" afterDir="false" />
     </list>
@@ -68,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1677431648309</updated>
       <workItem from="1677431649513" duration="112000" />
-      <workItem from="1677433606988" duration="7836000" />
+      <workItem from="1677433606988" duration="8153000" />
     </task>
     <servers />
   </component>
