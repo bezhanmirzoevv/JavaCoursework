@@ -23,13 +23,18 @@ public class Controller implements KeyListener {
             //System.out.println(player.getPosition().x);
             if (player.getPosition().x < -15){
                 player.startWalking(5);
-            }else{
-                //System.out.println("/game started");
-                player.stopWalking();
-                player.gamerunning = true;
+                player.timer.start();
             }
         } else if (key == KeyEvent.VK_SPACE){
-            player.jump(22);
+            player.jump = true;
+            System.out.println(player.getPosition().y);
+            if (player.getPosition().y < -8f) {
+                player.jump(27);
+            }else{
+                player.jump(20);
+            }
+        } else if (key == KeyEvent.VK_S){
+            player.sliding = true;
         }
     }
 
@@ -41,6 +46,10 @@ public class Controller implements KeyListener {
             player.stopWalking();
         } else if (key == KeyEvent.VK_A){
             player.stopWalking();
+        } else if (key == KeyEvent.VK_SPACE){
+            //player.jump = false;
+        } else if (key == KeyEvent.VK_S){
+            player.sliding = false;
         }
     }
 }

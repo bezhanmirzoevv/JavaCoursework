@@ -8,16 +8,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Obstacle extends StaticBody implements ActionListener {
-    private Timer timer = new Timer(500, this);
-    public Vec2 position = new Vec2(10f, -9.5f);
-    private static final Shape obstacle = new BoxShape(1,1);
-    private static String[] Images = {"", "", ""};
+    public Timer timer = new Timer(60, this);
+    public static Vec2 position = new Vec2(10f, -9.5f);
+    private final static Shape obstacle = new BoxShape(1,1);
+    private static String[] Images = {"data/shiruken/shiruken0.png", "data/shiruken/shiruken1.png",
+            "data/shiruken/shiruken2.png", "data/shiruken/shiruken3.png", "data/shiruken/shiruken4.png",
+            "data/shiruken/shiruken5.png"};
     private static int imagePointer = 0;
-    //private static BodyImage playerImage = new BodyImage(Images[imagePointer], 4);
+    private static BodyImage playerImage = new BodyImage(Images[imagePointer], 4);
 
     public Obstacle(World world) {
         super(world, obstacle);
-        //this.addImage(playerImage);
+        this.addImage(playerImage);
     }
 
     public static void setImagePointer() {
@@ -31,7 +33,8 @@ public class Obstacle extends StaticBody implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         setImagePointer();
-        //playerImage = new BodyImage(Images[imagePointer]);
-        //this.addImage(playerImage);
+        this.removeAllImages();
+        playerImage = new BodyImage(Images[imagePointer], 4);
+        this.addImage(playerImage);
     }
 }

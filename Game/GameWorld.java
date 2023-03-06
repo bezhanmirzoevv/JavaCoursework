@@ -15,6 +15,7 @@ public class GameWorld extends World {
         //make a ground platform
         Shape floor = new BoxShape(30, 1f);
         StaticBody ground = new StaticBody(this, floor);
+        ground.setName("ground");
         ground.setPosition(new Vec2(0f, -11.5f));
         ground.setFillColor(Color.CYAN);
 

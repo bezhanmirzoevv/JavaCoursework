@@ -7,7 +7,7 @@ import city.cs.engine.World;
 import org.jbox2d.common.Vec2;
 
 public class Platform extends StaticBody {
-    public static int width = 3;
+    public static int width = 4;
     public Vec2 position = new Vec2(-8f, -4f);
     private static Shape Platform = new BoxShape(width,0.5f);
 

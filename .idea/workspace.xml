@@ -6,11 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="35a1a368-3242-47dc-9ddc-446c323d8b43" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Collision.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameWorld.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Obstacle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Obstacles.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Obstacles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Platform.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameWorld.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +47,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "/Users/bezhanmirzoev/Library/CloudStorage/OneDrive-City,UniversityofLondon/Term 2/Programming in Java/JavaCoursework/Game",
+    "last_opened_file_path": "/Users/bezhanmirzoev/Library/CloudStorage/OneDrive-City,UniversityofLondon/Term 2/Programming in Java/JavaCoursework/data/playerImages",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -57,7 +60,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/playerImages" />
+      <recent name="$PROJECT_DIR$/data" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Game" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/shiruken" />
+      <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -70,7 +80,7 @@
       <updated>1677431648309</updated>
       <workItem from="1677431649513" duration="112000" />
       <workItem from="1677433606988" duration="8153000" />
-      <workItem from="1678035653193" duration="16762000" />
+      <workItem from="1678035653193" duration="25879000" />
     </task>
     <servers />
   </component>
