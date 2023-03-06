@@ -21,15 +21,15 @@ public class Controller implements KeyListener {
         int key = keys.getKeyCode();
         if (key == KeyEvent.VK_D) {
             //System.out.println(player.getPosition().x);
-            if (player.getPosition().x < -20){
+            if (player.getPosition().x < -15){
                 player.startWalking(5);
             }else{
                 //System.out.println("/game started");
                 player.stopWalking();
-                player.running = true;
+                player.gamerunning = true;
             }
         } else if (key == KeyEvent.VK_SPACE){
-            player.jump(12);
+            player.jump(22);
         }
     }
 

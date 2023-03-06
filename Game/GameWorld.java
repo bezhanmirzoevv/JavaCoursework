@@ -9,8 +9,6 @@ import java.awt.*;
 public class GameWorld extends World {
 
     private Player player;
-    private Obstacle obstacle1, obstacle2, obstacle3;
-    private StaticBody platform1;
     public GameWorld(){
         super();
 
@@ -23,11 +21,6 @@ public class GameWorld extends World {
         //initialising player
         player = new Player(this);
         player.setPosition(new Vec2(-22f, -8.5f));
-
-        //making obstacle
-        obstacle1 = new Obstacle(this);
-        obstacle1.setPosition(obstacle1.position);
-        obstacle1.setFillColor(Color.MAGENTA);
 
         Collision collisionListener = new Collision(player);
         player.addCollisionListener(collisionListener);
