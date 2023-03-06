@@ -1,13 +1,10 @@
 package Game;
 
-import city.cs.engine.BoxShape;
-import city.cs.engine.Shape;
-import city.cs.engine.Walker;
-import city.cs.engine.World;
+import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
-public class Obstacle extends Walker {
-    public Vec2 position = new Vec2(10f, -11.5f);
+public class Obstacle extends StaticBody {
+    public Vec2 position = new Vec2(10f, -9.5f);
     private static final Shape obstacle = new BoxShape(1,1);
 
     //private static final BodyImage playerImage = new BodyImage("data/student.png", 4);

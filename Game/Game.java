@@ -13,9 +13,13 @@ public class Game {
         GameWorld world = new GameWorld();
         GameView view = new GameView(world);
 
+        Obstacles movingObstacles = new Obstacles(world, world.getPlayer());
+
         //controlling player
         Controller controller = new Controller(world.getPlayer(), world);
         view.addKeyListener(controller);
+
+
 
         //view.addMouseListener(new GameView(view));
         //optional: draw a 1-metre grid over the view
@@ -29,7 +33,7 @@ public class Game {
         frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
-        SimulationSettings settings = new SimulationSettings(64);
+        SimulationSettings settings = new SimulationSettings(60);
 
         //Debugging view
         //JFrame debugView = new DebugViewer(world, 1000, 500);

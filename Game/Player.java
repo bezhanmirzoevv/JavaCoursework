@@ -4,6 +4,8 @@ import city.cs.engine.*;
 
 public class Player extends Walker {
     private int score;
+    public boolean gameover = false;
+    public boolean running = false;
     private static final Shape player = new BoxShape(1,2);
 
     //private static final BodyImage playerImage = new BodyImage("data/student.png", 4);

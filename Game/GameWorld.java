@@ -9,7 +9,7 @@ import java.awt.*;
 public class GameWorld extends World {
 
     private Player player;
-    private Obstacle obstacle1 = new Obstacle(this);;
+    private Obstacle obstacle1, obstacle2, obstacle3;
     private StaticBody platform1;
     public GameWorld(){
         super();
@@ -20,27 +20,21 @@ public class GameWorld extends World {
         ground.setPosition(new Vec2(0f, -11.5f));
         ground.setFillColor(Color.CYAN);
 
-        // make a suspended platform
-        Shape platformShape = new BoxShape(3, 0.5f);
-        platform1 = new StaticBody(this, platformShape);
-        platform1.setPosition(new Vec2(-8f, -4f));
-
         //initialising player
         player = new Player(this);
         player.setPosition(new Vec2(-22f, -8.5f));
 
         //making obstacle
-
+        obstacle1 = new Obstacle(this);
         obstacle1.setPosition(obstacle1.position);
         obstacle1.setFillColor(Color.MAGENTA);
+
+        Collision collisionListener = new Collision(player);
+        player.addCollisionListener(collisionListener);
     }
 
     public Player getPlayer(){
         return this.player;
     }
 
-    public void gameRunning(){
-        this.obstacle1.startWalking(-5);
-        this.platform1.move(new Vec2(-0.5f, 0));
-    }
 }
