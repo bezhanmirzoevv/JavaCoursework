@@ -86,7 +86,7 @@ public class Obstacles implements StepListener, ActionListener {
             for (int i = 0; i < activeObstacles.size(); i++){
                 activeObstacles.get(i).setPosition(new Vec2(activeObstacles.get(i).getPosition().x +speed,
                         activeObstacles.get(i).getPosition().y));
-                if (activeObstacles.get(i).getPosition().x < -22f){
+                if (activeObstacles.get(i).getPosition().x < -29f){
                     activeObstacles.get(i).setPosition(new Vec2(29f, activeObstacles.get(i).getPosition().y));
                     if (activeObstacles.get(i) instanceof Obstacle){
                         ((Obstacle) activeObstacles.get(i)).timer.stop();
