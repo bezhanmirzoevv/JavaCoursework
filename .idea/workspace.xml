@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35a1a368-3242-47dc-9ddc-446c323d8b43" name="Changes" comment="" />
+    <list default="true" id="35a1a368-3242-47dc-9ddc-446c323d8b43" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Game/Obstacles.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Obstacles.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +74,7 @@
       <workItem from="1677433606988" duration="8153000" />
       <workItem from="1678035653193" duration="26120000" />
       <workItem from="1678138101999" duration="3000" />
+      <workItem from="1678138142097" duration="320000" />
     </task>
     <servers />
   </component>
