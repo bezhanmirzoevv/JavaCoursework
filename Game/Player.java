@@ -27,7 +27,10 @@ public class Player extends Walker implements ActionListener {
             "data/playerImages/Jump8.png", "data/playerImages/Jump9.png"};
 
     private static int slideImagePointer = 0;
-    private static String[] slideImages = {};
+    private static String[] slideImages = {"data/playerImages/Slide0.png", "data/playerImages/Slide1.png",
+            "data/playerImages/Slide2.png", "data/playerImages/Slide3.png", "data/playerImages/Slide4.png",
+            "data/playerImages/Slide5.png", "data/playerImages/Slide6.png", "data/playerImages/Slide7.png",
+            "data/playerImages/Slide8.png", "data/playerImages/Slide9.png"};
 
     private static BodyImage playerImage = new BodyImage(runImages[runImagePointer], 4);
 

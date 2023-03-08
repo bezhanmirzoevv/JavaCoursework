@@ -5,7 +5,6 @@ import java.awt.event.KeyListener;
 
 public class Controller implements KeyListener {
     public Player player;
-    private stepListener stepListener;
     private GameWorld world;
 
     public Controller(Player player, GameWorld world){
@@ -27,7 +26,7 @@ public class Controller implements KeyListener {
             }
         } else if (key == KeyEvent.VK_SPACE){
             player.jump = true;
-            System.out.println(player.getPosition().y);
+            //System.out.println(player.getPosition().y);
             if (player.getPosition().y < -8f) {
                 player.jump(27);
             }else{
