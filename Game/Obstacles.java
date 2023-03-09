@@ -17,6 +17,7 @@ import java.util.Random;
 public class Obstacles implements StepListener, ActionListener {
     private World world;
     private Player player;
+    private int scorecounter = 1;
     private float speed = -0.25f;
     private Timer timer = new Timer(500, this);
     private int i = 0;
@@ -51,6 +52,8 @@ public class Obstacles implements StepListener, ActionListener {
     }
     @Override
     public void preStep(StepEvent stepEvent) {
+        //every 50m ingame
+        if (scorecounter%200 == 0){player.increaseScore();}
         if (player.getPosition().x > -15){
             player.stopWalking();
             player.setLinearVelocity(new Vec2(0, player.getLinearVelocity().y));
@@ -84,6 +87,8 @@ public class Obstacles implements StepListener, ActionListener {
     @Override
     public void postStep(StepEvent stepEvent) {
         if (player.gamerunning){
+            System.out.println(scorecounter);
+            scorecounter += 1;
             for (int i = 0; i < activeObstacles.size(); i++){
                 activeObstacles.get(i).setPosition(new Vec2(activeObstacles.get(i).getPosition().x +speed,
                         activeObstacles.get(i).getPosition().y));

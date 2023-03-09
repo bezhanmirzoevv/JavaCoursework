@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 public class Player extends Walker implements ActionListener {
     private int score;
+    public int scoremultiplier = 1;
     public boolean gameover = false;
     public boolean doublejump = true;
     private int doubleJumpCoolDown = 0;
@@ -50,7 +51,7 @@ public class Player extends Walker implements ActionListener {
     }
 
     public void increaseScore() {
-        this.score++;
+        this.score+=1*scoremultiplier;
     }
 
     public void setImagePointer(String pointer) {

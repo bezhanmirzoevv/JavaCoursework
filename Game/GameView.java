@@ -6,6 +6,7 @@ import city.cs.engine.UserView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class GameView extends UserView implements StepListener {
 
@@ -13,6 +14,9 @@ public class GameView extends UserView implements StepListener {
     private final Image fullbackground = new ImageIcon("data/background/fullbackground.png").getImage();
     private double cloudx, cloud2x, tree1x, tree2x, mountain1x, mountain2x;
     private Graphics2D g = new draw();
+    private final Image [] powerups = {new ImageIcon("data/powerups/doublejump.png").getImage(),
+            new ImageIcon("data/powerups/doublejump_black.png").getImage()};
+    private final Image scorecounter = new ImageIcon("data/scorecounter.png").getImage();
     private final Image clouds = new ImageIcon("data/background/clouds.png").getImage();
     private final Image trees1 = new ImageIcon("data/background/trees1.png").getImage();
     private final Image trees2 = new ImageIcon("data/background/trees2.png").getImage();
@@ -42,11 +46,26 @@ public class GameView extends UserView implements StepListener {
     }
     @Override
     protected void paintForeground(Graphics2D g){
+        g.setFont(new Font("Arial", Font.PLAIN, 30));
+        if (world.getPlayer().doublejump) {
+            g.drawImage(powerups[0], 740, 20, 90, 90, this);
+        }else{
+            g.drawImage(powerups[1], 740, 20, 90, 90, this);
+        }
 
+        g.drawImage(scorecounter, 840, 10, 150, 100, this);
+        if (world.getPlayer().getScore()<10) {
+            g.drawString(Integer.toString(world.getPlayer().getScore()), 905, 90);
+        }else if (world.getPlayer().getScore() <100){
+            g.drawString(Integer.toString(world.getPlayer().getScore()), 895, 90);
+        }else if (world.getPlayer().getScore() > 99){
+            g.drawString(Integer.toString(world.getPlayer().getScore()), 885, 90);
+        }
     }
 
     @Override
     public void preStep(StepEvent stepEvent) {
+        //System.out.println(getMousePosition());
         if (world.getPlayer().gamerunning || world.getPlayer().getLinearVelocity().x > 0) {
             if (tree1x == -1000.0) {
                 tree1x = 1000;
@@ -73,6 +92,7 @@ public class GameView extends UserView implements StepListener {
             cloudx -= 0.2;
             cloud2x -= 0.2;
             paintBackground(g);
+            paintForeground(g);
         }
     }
 
