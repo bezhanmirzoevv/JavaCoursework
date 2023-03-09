@@ -1,5 +1,8 @@
 package Game;
 
+import city.cs.engine.StaticBody;
+import org.jbox2d.common.Vec2;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -26,11 +29,12 @@ public class Controller implements KeyListener {
             }
         } else if (key == KeyEvent.VK_SPACE){
             player.jump = true;
-            //System.out.println(player.getPosition().y);
-            if (player.getPosition().y < -8f) {
-                player.jump(27);
-            }else{
-                player.jump(20);
+            player.jump(20);
+            /*if (player.getLinearVelocity().y !=0 && player.getPosition().y >-7 && player.doublejump &&
+                    player.getLinearVelocity().y !=-1.1920928E-8 && player.getLinearVelocity().y !=-1.7881394E-8){*/
+            if (player.getLinearVelocity().y !=0 && player.getBodiesInContact().size() == 0 && player.doublejump){
+                player.setLinearVelocity(new Vec2(player.getLinearVelocity().x, 20));
+                player.doublejump = false;
             }
         } else if (key == KeyEvent.VK_S){
             player.sliding = true;

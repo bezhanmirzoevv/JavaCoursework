@@ -53,6 +53,7 @@ public class Obstacles implements StepListener, ActionListener {
     public void preStep(StepEvent stepEvent) {
         if (player.getPosition().x > -15){
             player.stopWalking();
+            player.setLinearVelocity(new Vec2(0, player.getLinearVelocity().y));
             player.gamerunning = true;
         }
         if (player.gamerunning){
