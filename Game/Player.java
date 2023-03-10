@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class Player extends Walker implements ActionListener {
     public boolean reset = false;
     private int score;
-    private int credits=5;
+    private int credits=0;
     public int scoremultiplier = 1;
     public float gameSpeed = -0.25f;
     public boolean gameover = false;

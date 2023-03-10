@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35a1a368-3242-47dc-9ddc-446c323d8b43" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Collision.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Collision.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/GameWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Obstacles.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Obstacles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Platform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameWorld.class" afterDir="false" />
-    </list>
+    <list default="true" id="35a1a368-3242-47dc-9ddc-446c323d8b43" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +76,7 @@
       <workItem from="1678138101999" duration="3000" />
       <workItem from="1678138142097" duration="320000" />
       <workItem from="1678214221549" duration="20889000" />
-      <workItem from="1678387530448" duration="23968000" />
+      <workItem from="1678387530448" duration="24493000" />
     </task>
     <servers />
   </component>
