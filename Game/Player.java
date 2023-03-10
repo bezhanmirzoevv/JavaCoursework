@@ -1,23 +1,32 @@
 package Game;
 
 import city.cs.engine.*;
+import org.jbox2d.common.Vec2;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Player extends Walker implements ActionListener {
+    public boolean reset = false;
     private int score;
+    private int credits=5;
     public int scoremultiplier = 1;
+    public float gameSpeed = -0.25f;
     public boolean gameover = false;
     public boolean doublejump = true;
-    private int doubleJumpCoolDown = 0;
+    public int doubleJumpCoolDown = 0;
     public int speed = 150;
     public boolean sliding = false;
     public boolean jump = false;
     public Timer timer = new Timer(speed, this);
     public boolean gamerunning = false;
-    private static final Shape player = new BoxShape(1,2);
+    public static Shape shape = new BoxShape(1,2);
+    private static int deadImagePointer = 0;
+    private static String[] deadImages = {"data/playerImages/Dead__000.png", "data/playerImages/Dead__001.png",
+            "data/playerImages/Dead__002.png", "data/playerImages/Dead__003.png", "data/playerImages/Dead__004.png",
+            "data/playerImages/Dead__005.png", "data/playerImages/Dead__006.png", "data/playerImages/Dead__007.png",
+            "data/playerImages/Dead__008.png", "data/playerImages/Dead__009.png"};
     private static int runImagePointer = 0;
     private static String[] runImages = {"data/playerImages/Run0.png", "data/playerImages/Run1.png",
             "data/playerImages/Run2.png", "data/playerImages/Run3.png", "data/playerImages/Run4.png",
@@ -39,20 +48,33 @@ public class Player extends Walker implements ActionListener {
     private static BodyImage IdleImage = new BodyImage("data/playerImages/Idle0.png", 4);
 
     public Player(World world) {
-        super(world, player);
+        super(world, shape);
         addImage(IdleImage);
         this.score = 0;
         this.setGravityScale(3);
         timer.start();
     }
 
+    public void playerReset(){
+        this.gamerunning = false;
+        this.gameover = false;
+        this.credits = 0;
+        this.score = 0;
+        jumpImagePointer = 0;
+        runImagePointer = 0;
+        deadImagePointer = 0;
+    };
     public int getScore() {
         return score;
     }
-
     public void increaseScore() {
         this.score+=1*scoremultiplier;
     }
+    public void increaseCredits() {
+        this.credits++;
+    }
+    public int getCredits(){return this.credits;}
+    public void setCredits(int a){this.credits-=a;}
 
     public void setImagePointer(String pointer) {
         if (pointer == "runImagePointer") {
@@ -66,20 +88,29 @@ public class Player extends Walker implements ActionListener {
         }else if (pointer == "jumpImagePointer"){
             if (jumpImagePointer == jumpImages.length - 1) {
                 jumpImagePointer = 0;
-                this.jump = false;
             } else {
                 jumpImagePointer += 1;
             }
 
         }else if (pointer == "slideImagePointer"){
-
+            if (slideImagePointer == slideImages.length - 1) {
+                slideImagePointer = 0;
+                this.jump = false;
+                this.rotate((float)Math.toRadians(90));
+            } else {
+                slideImagePointer += 1;
+            }
+        } else if (pointer == "deadImagePointer") {
+            if (deadImagePointer < deadImages.length-1) {
+                deadImagePointer += 1;
+            }
         }
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if (!(doublejump) ) {
             doubleJumpCoolDown += 1;
-            if (doubleJumpCoolDown == 10) {
+            if (doubleJumpCoolDown == 15) {
                 System.out.println("doublejump replenished");
                 this.doublejump = true;
                 doubleJumpCoolDown = 0;
@@ -87,7 +118,9 @@ public class Player extends Walker implements ActionListener {
         }
         removeAllImages();
         if (sliding){
-            //implement slide function
+            //slide function
+            setImagePointer("jumpImagePointer");
+            playerImage = new BodyImage(slideImages[slideImagePointer], 4);
         } else if(jump){
             //jump images
             setImagePointer("jumpImagePointer");
@@ -97,7 +130,10 @@ public class Player extends Walker implements ActionListener {
             setImagePointer("runImagePointer");
             playerImage = new BodyImage(runImages[runImagePointer], 4);
             //addImage(playerImage);
-        } else{
+        } else if (this.gameover){
+            setImagePointer("deadImagePointer");
+            playerImage = new BodyImage(deadImages[deadImagePointer], 4);
+        }else{
             playerImage = IdleImage;
         }
         addImage(playerImage);

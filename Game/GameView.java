@@ -14,8 +14,12 @@ public class GameView extends UserView implements StepListener {
     private final Image fullbackground = new ImageIcon("data/background/fullbackground.png").getImage();
     private double cloudx, cloud2x, tree1x, tree2x, mountain1x, mountain2x;
     private Graphics2D g = new draw();
-    private final Image [] powerups = {new ImageIcon("data/powerups/doublejump.png").getImage(),
+    private final Image [] doublejumpImages = {new ImageIcon("data/powerups/doublejump.png").getImage(),
             new ImageIcon("data/powerups/doublejump_black.png").getImage()};
+
+    private static Image[] doublescoreImages = {new ImageIcon("data/powerups/doublescore0.png").getImage(),
+            new ImageIcon("data/powerups/doublescore1.png").getImage(),
+            new ImageIcon("data/powerups/doublescore2.png").getImage()};
     private final Image scorecounter = new ImageIcon("data/scorecounter.png").getImage();
     private final Image clouds = new ImageIcon("data/background/clouds.png").getImage();
     private final Image trees1 = new ImageIcon("data/background/trees1.png").getImage();
@@ -48,23 +52,51 @@ public class GameView extends UserView implements StepListener {
     protected void paintForeground(Graphics2D g){
         g.setFont(new Font("Arial", Font.PLAIN, 30));
         if (world.getPlayer().doublejump) {
-            g.drawImage(powerups[0], 740, 20, 90, 90, this);
+            g.drawImage(doublejumpImages[0], 900, 10, 90, 90, this);
         }else{
-            g.drawImage(powerups[1], 740, 20, 90, 90, this);
+            g.drawImage(doublejumpImages[1], 900, 10, 90, 90, this);
         }
 
-        g.drawImage(scorecounter, 840, 10, 150, 100, this);
+        //scorecounter
+        g.drawImage(scorecounter, 425, 10, 150, 100, this);
         if (world.getPlayer().getScore()<10) {
-            g.drawString(Integer.toString(world.getPlayer().getScore()), 905, 90);
+            g.drawString(Integer.toString(world.getPlayer().getScore()), 490, 90);
         }else if (world.getPlayer().getScore() <100){
-            g.drawString(Integer.toString(world.getPlayer().getScore()), 895, 90);
+            g.drawString(Integer.toString(world.getPlayer().getScore()), 480, 90);
         }else if (world.getPlayer().getScore() > 99){
-            g.drawString(Integer.toString(world.getPlayer().getScore()), 885, 90);
+            g.drawString(Integer.toString(world.getPlayer().getScore()), 470, 90);
+        }
+
+        //credits counter
+        g.drawString(Integer.toString(world.getPlayer().getCredits()), 65, 50);
+        g.drawImage(new ImageIcon("data/powerups/coin_rotate0.png").getImage(), 10, 15, 50, 50, this);
+
+        //powerup1
+        if (world.getPlayer().scoremultiplier == 2) {
+            g.drawImage(doublescoreImages[2], 800, 10, 90, 90, this);
+        }else if (world.getPlayer().getCredits()<5){
+            g.drawImage(doublescoreImages[0], 800, 10, 90, 90, this);
+        }else if (world.getPlayer().getCredits()>=5) {
+            g.drawImage(doublescoreImages[1], 800, 10, 90, 90, this);
+        }
+        if (world.getPlayer().gameover){
+            g.setFont(new Font("Arial", Font.PLAIN, 100));
+            g.drawString("GameOver", 250, 250);
+            g.setFont(new Font("Arial", Font.PLAIN, 50));
+            g.drawString("R to restart", 300, 300);
         }
     }
 
     @Override
     public void preStep(StepEvent stepEvent) {
+        if (world.getPlayer().reset){
+            cloudx = 0;
+            cloud2x = 1000;
+            tree1x = 0;
+            tree2x = 1000;
+            mountain1x = 0;
+            mountain2x = 1000;
+        }
         //System.out.println(getMousePosition());
         if (world.getPlayer().gamerunning || world.getPlayer().getLinearVelocity().x > 0) {
             if (tree1x == -1000.0) {

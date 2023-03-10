@@ -26,7 +26,7 @@ public class Game {
         //view.setGridResolution(1);
 
 
-        final JFrame frame = new JFrame("Chicken Runner Game");
+        final JFrame frame = new JFrame("Ninja Runner Game");
         frame.add(view);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationByPlatform(true);

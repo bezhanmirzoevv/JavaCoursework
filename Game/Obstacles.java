@@ -18,7 +18,6 @@ public class Obstacles implements StepListener, ActionListener {
     private World world;
     private Player player;
     private int scorecounter = 1;
-    private float speed = -0.25f;
     private Timer timer = new Timer(500, this);
     private int i = 0;
     private int j = 0;
@@ -52,6 +51,9 @@ public class Obstacles implements StepListener, ActionListener {
     }
     @Override
     public void preStep(StepEvent stepEvent) {
+        if (player.reset){
+            reset();
+        }
         //every 50m ingame
         if (scorecounter%200 == 0){player.increaseScore();}
         if (player.getPosition().x > -15){
@@ -73,12 +75,20 @@ public class Obstacles implements StepListener, ActionListener {
                         || activeObstacles.contains(platform2) == false)) {
                     activeObstacles.add(platform1);
                     platform1.setPosition(new Vec2(29f, random.nextFloat(-0.5f, 1.5f)));
+                    if(random.nextInt(2) == 1) {
+                        coin coin = new coin(world, player);
+                        coin.setPosition(new Vec2(platform1.getPosition().x, platform1.getPosition().y+3f));
+                    }
                     j++;
                 } else if (j == 1 && activeObstacles.contains(platform2) == false && (platform1.getPosition().x < 20f
                         || activeObstacles.contains(platform1) == false)) {
                     activeObstacles.add(platform2);
                     platform2.setPosition(new Vec2(29f, random.nextFloat(-0.5f, 1.5f)));
                     j = 0;
+                    if(random.nextInt(2) == 1) {
+                        coin coin = new coin(world, player);
+                        coin.setPosition(new Vec2(platform2.getPosition().x, platform2.getPosition().y+3f));
+                    }
                 }
             }
         }
@@ -87,10 +97,9 @@ public class Obstacles implements StepListener, ActionListener {
     @Override
     public void postStep(StepEvent stepEvent) {
         if (player.gamerunning){
-            System.out.println(scorecounter);
             scorecounter += 1;
             for (int i = 0; i < activeObstacles.size(); i++){
-                activeObstacles.get(i).setPosition(new Vec2(activeObstacles.get(i).getPosition().x +speed,
+                activeObstacles.get(i).setPosition(new Vec2(activeObstacles.get(i).getPosition().x +player.gameSpeed,
                         activeObstacles.get(i).getPosition().y));
                 if (activeObstacles.get(i).getPosition().x < -29f){
                     activeObstacles.get(i).setPosition(new Vec2(29f, activeObstacles.get(i).getPosition().y));
@@ -129,4 +138,16 @@ public class Obstacles implements StepListener, ActionListener {
         }
         timer.stop();
     }
+    public void reset(){
+        activeObstacles.clear();
+        obstacle1.setPosition(new Vec2(29f, -9.5f));
+        obstacle2.setPosition(new Vec2(29f, -9.5f));
+        obstacle3.setPosition(new Vec2(29f, -9.5f));
+        obstacle4.setPosition(new Vec2(29f, -9.5f));
+
+        //initilising platforms
+        platform1.setPosition(new Vec2(29f, -4f));
+        platform2.setPosition(new Vec2(29f, -4f));
+        player.reset = false;
+    };
 }

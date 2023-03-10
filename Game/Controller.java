@@ -1,6 +1,8 @@
 package Game;
 
+import city.cs.engine.BoxShape;
 import city.cs.engine.StaticBody;
+import org.jbox2d.common.Timer;
 import org.jbox2d.common.Vec2;
 
 import java.awt.event.KeyEvent;
@@ -9,10 +11,12 @@ import java.awt.event.KeyListener;
 public class Controller implements KeyListener {
     public Player player;
     private GameWorld world;
+    private powerupTimer doublescoreTimer;
 
     public Controller(Player player, GameWorld world){
         this.player = player;
         this.world = world;
+        doublescoreTimer = new powerupTimer(player, "doublescore");
     }
 
     @Override
@@ -37,7 +41,19 @@ public class Controller implements KeyListener {
                 player.doublejump = false;
             }
         } else if (key == KeyEvent.VK_S){
-            player.sliding = true;
+            /*player.sliding = true;
+            player.rotate((float)Math.toRadians(-90));
+            player.applyForce(new Vec2(10, 0));*/
+        } else if (key == KeyEvent.VK_1){
+            if (player.getCredits()>=5) {
+                player.scoremultiplier = 2;
+                doublescoreTimer.starttimer();
+                player.setCredits(5);
+            }
+        }else if (key == KeyEvent.VK_R) {
+            if (player.gameover) {
+                world.reset();
+            }
         }
     }
 

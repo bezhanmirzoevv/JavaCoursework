@@ -50,8 +50,16 @@ public class GameWorld extends World implements StepListener{
                 if (ground2.getPosition().x < -54f){
                     ground2.setPosition(new Vec2(50f, ground2.getPosition().y));
                 }
-                ground.setPosition(new Vec2(ground.getPosition().x-0.25f, ground.getPosition().y));
-                ground2.setPosition(new Vec2(ground2.getPosition().x-0.25f, ground2.getPosition().y));
+                ground.setPosition(new Vec2(ground.getPosition().x+player.gameSpeed, ground.getPosition().y));
+                ground2.setPosition(new Vec2(ground2.getPosition().x+player.gameSpeed, ground2.getPosition().y));
             }
+    }
+    public void reset(){
+        player.reset = true;
+        player.playerReset();
+        player.setPosition(new Vec2(-22f, -8.5f));
+        ground.setPosition(new Vec2(0f, -11.5f));
+        ground2.setPosition(new Vec2(50f, -11.5f));
+        this.getDynamicBodies().get(0).destroy();
     }
 }
