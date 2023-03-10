@@ -22,6 +22,7 @@ public class Collision implements CollisionListener {
         }
         if (collisionEvent.getOtherBody() instanceof Obstacle){
             player.gamerunning = false;
+            player.stopWalking();
             player.gameover = true;
             collisionEvent.getOtherBody().setPosition(new Vec2(29f, -9.5f));
         }else{

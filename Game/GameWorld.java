@@ -43,6 +43,11 @@ public class GameWorld extends World implements StepListener{
 
     @Override
     public void postStep(StepEvent stepEvent) {
+        if (player.getPosition().x < -30f){
+            player.stopWalking();
+            player.gameover = true;
+            player.gamerunning = false;
+        }
             if (player.gamerunning){
                 if (ground.getPosition().x < -54f){
                     ground.setPosition(new Vec2(50f, ground.getPosition().y));
