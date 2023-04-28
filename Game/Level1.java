@@ -1,17 +1,28 @@
 package Game;
 
-import city.cs.engine.BodyImage;
 
-public class Level1 extends GameLevel{
+import city.cs.engine.BodyImage;
+import org.jbox2d.common.Vec2;
+
+public class Level1 extends GameLevel {
     private static BodyImage floorimage = new BodyImage("data/floor.png", 2);
     public Level1(){
         super();
-        ground.addImage(floorimage);
-        ground2.addImage(floorimage);
+
+        //setting the ground
+        getGround().setPosition(new Vec2(0f, -11.5f));
+        getGround2().setPosition(new Vec2(50f, -11.5f));
+        getGround().addImage(floorimage);
+        getGround2().addImage(floorimage);
+
+        //player
+        getPlayer().setPosition(new Vec2(-22f, -8.5f));
     }
-    public boolean isComplete(){
-        if (getPlayer().getScore()>200)
-            return true;
-        else return false;
+
+
+    public void nexLevel(){
+        if (getPlayer().getScore()>100){
+
+        }
     }
 }

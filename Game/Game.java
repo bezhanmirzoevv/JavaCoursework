@@ -1,22 +1,27 @@
 package Game;
 
-import city.cs.engine.DebugViewer;
 import city.cs.engine.SimulationSettings;
+import city.cs.engine.World;
 
 import javax.swing.*;
-import java.sql.SQLOutput;
+import java.awt.*;
 
 public class Game {
+
+    private GameView view;
+    private Controller controller;
+    private GameLevel world;
+    private JFrame frame = new JFrame("Ninja Runner Game");
+    private TestScreen testscreen;
     public Game() {
-
-
-        GameWorld world = new GameWorld();
-        GameView view = new GameView(world);
+        World w = new World();
+        world = new Level1();
+        view = new GameView(world);
 
         Obstacles movingObstacles = new Obstacles(world, world.getPlayer());
 
         //controlling player
-        Controller controller = new Controller(world.getPlayer(), world);
+        controller = new Controller(world.getPlayer(), world);
         view.addKeyListener(controller);
 
 
@@ -25,9 +30,14 @@ public class Game {
         //optional: draw a 1-metre grid over the view
         //view.setGridResolution(1);
 
+        //start screen
+        StartScreen startscreen = new StartScreen();
+        testscreen = new TestScreen(world, this);
 
-        final JFrame frame = new JFrame("Ninja Runner Game");
-        frame.add(view);
+        frame.add(testscreen);
+        System.out.println(frame.getComponentCount());
+        /*frame.add(view);
+        frame.add(startscreen.getStartscreen(), BorderLayout.NORTH);*/
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationByPlatform(true);
         frame.setResizable(false);
@@ -39,6 +49,12 @@ public class Game {
         //JFrame debugView = new DebugViewer(world, 1000, 500);
 
         world.start();
+        view.requestFocus();
+    }
+    public void startGame(){
+        frame.remove(testscreen);
+        frame.add(view);
+        frame.revalidate();
         view.requestFocus();
     }
 

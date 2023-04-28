@@ -6,7 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="35a1a368-3242-47dc-9ddc-446c323d8b43" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/GameLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/GameWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Level1.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameLevel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameWorld.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Level1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Level1.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +96,12 @@
       <workItem from="1678720348910" duration="234000" />
       <workItem from="1679058028525" duration="1343000" />
       <workItem from="1680447978453" duration="735000" />
-      <workItem from="1681740867527" duration="893000" />
+      <workItem from="1681740867527" duration="897000" />
+      <workItem from="1682617934220" duration="2538000" />
+      <workItem from="1682621822706" duration="8000" />
+      <workItem from="1682622026719" duration="8000" />
+      <workItem from="1682622039244" duration="1239000" />
+      <workItem from="1682623687667" duration="15102000" />
     </task>
     <servers />
   </component>

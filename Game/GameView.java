@@ -6,11 +6,10 @@ import city.cs.engine.UserView;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public class GameView extends UserView implements StepListener {
 
-    private GameWorld world;
+    private GameLevel world;
     private final Image fullbackground = new ImageIcon("data/background/fullbackground.png").getImage();
     private double cloudx, cloud2x, tree1x, tree2x, mountain1x, mountain2x;
     private Graphics2D g = new draw();
@@ -25,7 +24,7 @@ public class GameView extends UserView implements StepListener {
     private final Image trees1 = new ImageIcon("data/background/trees1.png").getImage();
     private final Image trees2 = new ImageIcon("data/background/trees2.png").getImage();
     private final Image background = new ImageIcon("data/background/background.png").getImage();
-    public GameView(GameWorld w){
+    public GameView(GameLevel w){
         super(w, 1000, 500);
         world = w;
         world.addStepListener(this);
@@ -129,8 +128,6 @@ public class GameView extends UserView implements StepListener {
     }
 
     @Override
-    public void postStep(StepEvent stepEvent) {
-
-    }
+    public void postStep(StepEvent stepEvent) {}
 }
 
