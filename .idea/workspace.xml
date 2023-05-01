@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35a1a368-3242-47dc-9ddc-446c323d8b43" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/GameLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/StartScreen.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/StartScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/TestScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/powerups/doublescore0.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/powerups/doublescore0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/scorecounter.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/scorecounter.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameLevel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/TestScreen$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/TestScreen.class" beforeDir="false" />
-    </list>
+    <list default="true" id="35a1a368-3242-47dc-9ddc-446c323d8b43" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +86,7 @@
       <workItem from="1682621822706" duration="8000" />
       <workItem from="1682622026719" duration="8000" />
       <workItem from="1682622039244" duration="1239000" />
-      <workItem from="1682623687667" duration="20769000" />
+      <workItem from="1682623687667" duration="20811000" />
     </task>
     <servers />
   </component>
