@@ -21,11 +21,9 @@ public class Controller implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent keys) {
-        System.out.println("hi");
         int key = keys.getKeyCode();
         switch(key){
             case KeyEvent.VK_D:
-                System.out.println(player.getPosition().x);
                 if (player.getPosition().x < -15){
                     player.startWalking(5);
                     player.timer.start();
@@ -53,6 +51,10 @@ public class Controller implements KeyListener {
             case KeyEvent.VK_R:
                 if (player.gameover) {
                     world.reset();
+                }
+            case KeyEvent.VK_ENTER:
+                if (player.getScore()>50){
+                    //have player run off screen then start next level
                 }
                 break;
         }

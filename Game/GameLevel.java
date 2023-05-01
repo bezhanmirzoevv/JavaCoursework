@@ -10,6 +10,8 @@ public abstract class GameLevel extends World implements StepListener{
     private StaticBody ground = new StaticBody(this, floor);
     private StaticBody ground2 = new StaticBody(this, floor);
     private boolean gameStarted = false;
+    private boolean level1 = false;
+    private boolean level2 = false;
 
     private Player player;
     public GameLevel(){
@@ -36,6 +38,8 @@ public abstract class GameLevel extends World implements StepListener{
     public StaticBody getGround2(){return this.ground2;}
     public void startRound(){this.gameStarted = true;}
     public boolean isGameStarted(){return this.gameStarted;}
+    public void level1Complete(){level1=true;}
+    public void level2Complete(){level2=true;}
 
     @Override
     public void preStep(StepEvent stepEvent) {}
@@ -68,4 +72,5 @@ public abstract class GameLevel extends World implements StepListener{
         this.getDynamicBodies().get(0).destroy();
     }
 
+    public abstract void strt();
 }

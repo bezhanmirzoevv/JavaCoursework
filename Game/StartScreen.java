@@ -44,7 +44,7 @@ public class StartScreen extends UserView {
         controlButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                    g.setControlScreen();
             }
         });
         exitButton.addActionListener(new ActionListener() {

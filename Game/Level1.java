@@ -19,7 +19,11 @@ public class Level1 extends GameLevel {
         getPlayer().setPosition(new Vec2(-22f, -8.5f));
     }
 
-
+    @Override
+    public void strt(){
+        getGround().addImage(floorimage);
+        getGround2().addImage(floorimage);
+    }
     public void nexLevel(){
         if (getPlayer().getScore()>100){
 

@@ -14,14 +14,14 @@ public class ControlScreen extends UserView {
         JButton backButton = new JButton("Back");
         this.setLayout(null);
 
-        backButton.setBounds(75, 50, 100, 25);
+        backButton.setBounds(20, 20, 150, 50);
 
         this.add(backButton);
 
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                g.setStartScreen();
+                g.setStartScreen("Control");
             }
         });
     }
