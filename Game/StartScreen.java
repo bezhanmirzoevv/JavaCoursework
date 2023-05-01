@@ -37,14 +37,13 @@ public class StartScreen extends UserView {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Button working");
-                g.startGame();
+                g.nextScreen("Start", "Level");
             }
         });
         controlButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                    g.setControlScreen();
+                g.nextScreen("Start", "Control");
             }
         });
         exitButton.addActionListener(new ActionListener() {

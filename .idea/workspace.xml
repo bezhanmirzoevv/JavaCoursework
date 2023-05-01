@@ -7,19 +7,16 @@
     <list default="true" id="35a1a368-3242-47dc-9ddc-446c323d8b43" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/ControlScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/ControlScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/GameLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/LevelScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/LevelScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/StartScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/ControlScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/ControlScreen$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/ControlScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/ControlScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameLevel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Level1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Level1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/LevelScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/LevelScreen$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/LevelScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/LevelScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +101,7 @@
       <workItem from="1682622026719" duration="8000" />
       <workItem from="1682622039244" duration="1239000" />
       <workItem from="1682623687667" duration="20811000" />
-      <workItem from="1682966143440" duration="3548000" />
+      <workItem from="1682966143440" duration="4885000" />
     </task>
     <servers />
   </component>

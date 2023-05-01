@@ -36,7 +36,7 @@ public class Game {
 
         //Screens
         startScreen = new StartScreen(world, this);
-        controlScreen = new ControlScreen(plainworld, this);
+        controlScreen = new ControlScreen(world, this);
         levelScreen = new LevelScreen(world, this);
 
         //frame
@@ -56,39 +56,42 @@ public class Game {
         System.out.println(frame.getComponents());
     }
 
-
-    public void startGame(){
-        frame.remove(startScreen);
-        frame.add(levelScreen);
-        /*world.strt();
-        frame.add(view);*/
-        frame.revalidate();
-
-
-        view.requestFocus();
-    }
     public JFrame getFrame() {
         return frame;
     }
 
-    public void setStartScreen(String s) {
-        switch (s){
+    public void nextScreen(String current, String next){
+        switch (current){
+            case "Start":
+                frame.remove(startScreen);
+                break;
             case "Level":
                 frame.remove(levelScreen);
+                break;
             case "Control":
                 frame.remove(controlScreen);
                 plainworld.stop();
+                break;
         }
+        switch(next){
+            case "Start":
+                frame.add(startScreen);
+                break;
+            case "Control":
+                plainworld.start();
+                frame.add(controlScreen);
+                break;
+            case "Level":
+                frame.add(levelScreen);
+                break;
+            case "Level1":
+                world.strt();
+                frame.add(view);
+                view.requestFocus();
+                break;
+        }frame.revalidate();
+    }
 
-        frame.add(startScreen);
-        frame.revalidate();
-    }
-    public void setControlScreen(){
-        plainworld.start();
-        frame.remove(startScreen);
-        frame.add(controlScreen);
-        frame.revalidate();
-    }
     public GameLevel getWorld(){
         return world;
     }

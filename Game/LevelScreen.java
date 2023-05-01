@@ -32,7 +32,13 @@ public class LevelScreen extends UserView {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                g.setStartScreen("Level");
+                g.nextScreen("Level", "Start");
+            }
+        });
+        level1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                g.nextScreen("Level", "Level1");
             }
         });
     }

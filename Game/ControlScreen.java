@@ -21,7 +21,7 @@ public class ControlScreen extends UserView {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                g.setStartScreen("Control");
+                g.nextScreen("Control", "Start");
             }
         });
     }
