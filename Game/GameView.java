@@ -49,7 +49,7 @@ public class GameView extends UserView implements StepListener {
     }
     @Override
     protected void paintForeground(Graphics2D g){
-        g.setFont(new Font("Arial", Font.PLAIN, 30));
+        g.setFont(new Font("Ninjastrike", Font.PLAIN, 30));
         if (world.getPlayer().doublejump) {
             g.drawImage(doublejumpImages[0], 900, 10, 90, 90, this);
         }else{
@@ -79,9 +79,9 @@ public class GameView extends UserView implements StepListener {
             g.drawImage(doublescoreImages[1], 800, 10, 90, 90, this);
         }
         if (world.getPlayer().gameover){
-            g.setFont(new Font("Arial", Font.PLAIN, 100));
+            g.setFont(new Font("Ninjastrike", Font.PLAIN, 100));
             g.drawString("GameOver", 250, 250);
-            g.setFont(new Font("Arial", Font.PLAIN, 50));
+            g.setFont(new Font("Ninjastrike", Font.PLAIN, 50));
             g.drawString("R to restart", 300, 300);
         }
     }

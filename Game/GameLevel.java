@@ -23,6 +23,7 @@ public abstract class GameLevel extends World implements StepListener{
         //initialising player
         player = new Player(this);
 
+
         Collision collisionListener = new Collision(player);
         player.addCollisionListener(collisionListener);
     }

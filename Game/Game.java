@@ -12,7 +12,7 @@ public class Game {
     private Controller controller;
     private GameLevel world;
     private JFrame frame = new JFrame("Ninja Runner Game");
-    private TestScreen testscreen;
+    private StartScreen startScreen;
     public Game() {
         World w = new World();
         world = new Level1();
@@ -31,13 +31,10 @@ public class Game {
         //view.setGridResolution(1);
 
         //start screen
-        StartScreen startscreen = new StartScreen();
-        testscreen = new TestScreen(world, this);
+        startScreen = new StartScreen(world, this);
 
-        frame.add(testscreen);
-        System.out.println(frame.getComponentCount());
-        /*frame.add(view);
-        frame.add(startscreen.getStartscreen(), BorderLayout.NORTH);*/
+        //frame
+        frame.add(startScreen);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationByPlatform(true);
         frame.setResizable(false);
@@ -51,12 +48,27 @@ public class Game {
         world.start();
         view.requestFocus();
     }
+
+
     public void startGame(){
-        frame.remove(testscreen);
+        frame.remove(startScreen);
         frame.add(view);
         frame.revalidate();
         view.requestFocus();
     }
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public void setStartScreen() {
+        frame.remove(frame.getComponent(0));
+        frame.add(startScreen);
+        frame.revalidate();
+    }
+    public GameLevel getWorld(){
+        return world;
+    }
+
 
     /** Run the game. */
     public static void main(String[] args) {
