@@ -10,7 +10,7 @@ import java.awt.*;
 public class GameView extends UserView implements StepListener {
 
     private GameLevel world;
-    private final Image fullbackground = new ImageIcon("data/background/fullbackground.png").getImage();
+    private final Image fullbackground = new ImageIcon("data/Level1Background/fullbackground.png").getImage();
     private double cloudx, cloud2x, tree1x, tree2x, mountain1x, mountain2x;
     private Graphics2D g = new draw();
     private final Image [] doublejumpImages = {new ImageIcon("data/powerups/doublejump.png").getImage(),
@@ -20,10 +20,10 @@ public class GameView extends UserView implements StepListener {
             new ImageIcon("data/powerups/doublescore1.png").getImage(),
             new ImageIcon("data/powerups/doublescore2.png").getImage()};
     private final Image scorecounter = new ImageIcon("data/scorecounter.png").getImage();
-    private final Image clouds = new ImageIcon("data/background/clouds.png").getImage();
-    private final Image trees1 = new ImageIcon("data/background/trees1.png").getImage();
-    private final Image trees2 = new ImageIcon("data/background/trees2.png").getImage();
-    private final Image background = new ImageIcon("data/background/background.png").getImage();
+    private final Image clouds = new ImageIcon("data/Level1Background/clouds.png").getImage();
+    private final Image trees1 = new ImageIcon("data/Level1Background/trees1.png").getImage();
+    private final Image trees2 = new ImageIcon("data/Level1Background/trees2.png").getImage();
+    private final Image background = new ImageIcon("data/Level1Background/background.png").getImage();
     public GameView(GameLevel w){
         super(w, 1000, 500);
         world = w;

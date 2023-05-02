@@ -5,7 +5,7 @@ import city.cs.engine.BodyImage;
 import org.jbox2d.common.Vec2;
 
 public class Level1 extends GameLevel {
-    private static BodyImage floorimage = new BodyImage("data/floor.png", 2);
+    private static BodyImage floorimage = new BodyImage("data/Level1Background/floor.png", 2);
     public Level1(){
         super();
 

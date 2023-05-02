@@ -5,7 +5,6 @@ import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
 
 public abstract class GameLevel extends World implements StepListener{
-    private static BodyImage floorimage = new BodyImage("data/floor.png", 2);
     private static Shape floor = new BoxShape(30, 1f);
     private StaticBody ground = new StaticBody(this, floor);
     private StaticBody ground2 = new StaticBody(this, floor);

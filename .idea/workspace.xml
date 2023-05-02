@@ -6,18 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="35a1a368-3242-47dc-9ddc-446c323d8b43" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/ControlScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/ControlScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/LevelScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/LevelScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/StartScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/ControlScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/ControlScreen$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/GameLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Level1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Level1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Platform.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Platform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/background/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/background/clouds.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/background/fullbackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/background/trees1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/background/trees2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/floor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/platform.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/LevelScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/LevelScreen$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/LevelScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/LevelScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/StartScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameLevel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/GameView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Level1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Level1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Platform.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaCoursework/Game/Platform.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/data/background/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/data/background/clouds.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/data/background/fullbackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/data/background/trees1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/data/background/trees2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/data/floor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaCoursework/data/platform.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +112,7 @@
       <workItem from="1682622026719" duration="8000" />
       <workItem from="1682622039244" duration="1239000" />
       <workItem from="1682623687667" duration="20811000" />
-      <workItem from="1682966143440" duration="4885000" />
+      <workItem from="1682966143440" duration="6502000" />
     </task>
     <servers />
   </component>
