@@ -24,7 +24,7 @@ public class Controller implements KeyListener {
         int key = keys.getKeyCode();
         switch(key){
             case KeyEvent.VK_D:
-                if (player.getPosition().x < -15){
+                if (player.getPosition().x < -15&&!player.gameover){
                     player.startWalking(5);
                     player.timer.start();
                 }
@@ -38,9 +38,11 @@ public class Controller implements KeyListener {
                 }
                 break;
             case KeyEvent.VK_S:
-                /*player.sliding = true;
-                player.rotate((float)Math.toRadians(-90));
-                player.applyForce(new Vec2(10, 0));*/
+                //if (world.islevel1Complete() && !player.sliding) {
+                if (!player.sliding){
+                    player.sliding = true;
+                    player.rotate((float) Math.toRadians(-270));
+                }
             case KeyEvent.VK_1:
                 if (player.getCredits()>=5) {
                     player.scoremultiplier = 2;
@@ -53,8 +55,22 @@ public class Controller implements KeyListener {
                     world.reset();
                 }
             case KeyEvent.VK_ENTER:
-                if (player.getScore()>50){
+                if ((world instanceof Level1 && player.getScore()>=20) ||
+                        (world instanceof Level2 && player.getScore()>=50) ||
+                        (world instanceof Level3 && player.getScore()>=80)) {
                     //have player run off screen then start next level
+                    player.gamerunning = false;
+                    world.levelcomplete = true;
+                    player.startWalking(10);
+                }
+                break;
+            case KeyEvent.VK_7:
+                if (world instanceof Level1){
+                    player.setScore(19);
+                }else if (world instanceof Level2){
+                    player.setScore(49);
+                }else if (world instanceof Level3){
+                    player.setScore(79);
                 }
                 break;
         }
@@ -72,7 +88,13 @@ public class Controller implements KeyListener {
             //player.jump = false;
         } else if (key == KeyEvent.VK_S){
             player.sliding = false;
+            //player.rotate((float) Math.toRadians(-270));
         }
+    }
+    public void Update(Player player, GameLevel world){
+        this.player = player;
+        this.world = world;
+        doublescoreTimer = new powerupTimer(player, "doublescore");
     }
 }
 

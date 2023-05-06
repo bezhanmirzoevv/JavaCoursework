@@ -20,12 +20,13 @@ public class Collision implements CollisionListener {
             collisionEvent.getOtherBody().destroy();
             player.increaseCredits();
         }
-        if (collisionEvent.getOtherBody() instanceof Obstacle){
+        if (collisionEvent.getOtherBody() instanceof Obstacle && player.gamerunning){
             player.gamerunning = false;
             player.stopWalking();
             player.gameover = true;
             collisionEvent.getOtherBody().setPosition(new Vec2(29f, -9.5f));
-        }else{
+        }else if (collisionEvent.getOtherBody() instanceof Obstacle && !player.gamerunning){
+            collisionEvent.getOtherBody().setPosition(new Vec2(32f, -9.5f));
             //System.out.println("fml");
         }
     }

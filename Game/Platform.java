@@ -9,9 +9,9 @@ public class Platform extends StaticBody {
 
     private static final BodyImage playerImage = new BodyImage("data/Level1Background/platform.png", 1);
 
-    public Platform(World world) {
+    public Platform(GameLevel world) {
         super(world, Platform);
-        addImage(playerImage);
+        addImage(world.getPlatform()[0]);
 
     }
 }

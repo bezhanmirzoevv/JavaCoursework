@@ -11,14 +11,14 @@ import java.awt.event.ActionListener;
 
 public class StartScreen extends UserView {
     private Graphics2D g = new draw();
-    private final Image clouds = new ImageIcon("data/background/clouds.png").getImage();
-    private final Image background = new ImageIcon("data/sky.png").getImage();
+    private final Image clouds = new ImageIcon("data/Level1Background/clouds.png").getImage();
+    private final Image background = new ImageIcon("data/Screens/sky.png").getImage();
     private double cloudx = 0;
     private double cloud2x = 1000;
     public StartScreen(World w, Game g) {
         super(w, 1000, 500);
         JButton startButton = new JButton("Start");
-        JButton controlButton = new JButton("Controls");
+        JButton controlButton = new JButton("How to play");
         JButton exitButton = new JButton("Exit");
         this.setLayout(null);
 
@@ -32,7 +32,7 @@ public class StartScreen extends UserView {
         this.add(exitButton);
 
         //draw
-        g.getWorld().getGround().addImage(new BodyImage("data/grassfloor.png", 2));
+        //g.getWorld().getGround().addImage(new BodyImage("data/Screens/grassfloor.png", 2));
 
         startButton.addActionListener(new ActionListener() {
             @Override

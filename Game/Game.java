@@ -1,5 +1,6 @@
 package Game;
 
+import city.cs.engine.BodyImage;
 import city.cs.engine.SimulationSettings;
 import city.cs.engine.World;
 
@@ -16,12 +17,11 @@ public class Game {
     private StartScreen startScreen;
     private ControlScreen controlScreen;
     private LevelScreen levelScreen;
+    private EndScreen endscreen;
     public Game() {
         plainworld = new World();
-        world = new Level1();
+        world = new Level1(this, 0, 0, false, false);
         view = new GameView(world);
-
-        Obstacles movingObstacles = new Obstacles(world, world.getPlayer());
 
         //controlling player
         controller = new Controller(world.getPlayer(), world);
@@ -36,8 +36,9 @@ public class Game {
 
         //Screens
         startScreen = new StartScreen(world, this);
-        controlScreen = new ControlScreen(world, this);
+        controlScreen = new ControlScreen(plainworld, this);
         levelScreen = new LevelScreen(world, this);
+        endscreen = new EndScreen(plainworld);
 
         //frame
         frame.add(startScreen);
@@ -53,7 +54,6 @@ public class Game {
 
         world.start();
         view.requestFocus();
-        System.out.println(frame.getComponents());
     }
 
     public JFrame getFrame() {
@@ -72,6 +72,10 @@ public class Game {
                 frame.remove(controlScreen);
                 plainworld.stop();
                 break;
+            case "Game":
+                frame.remove(view);
+                //view.transferFocus();
+                break;
         }
         switch(next){
             case "Start":
@@ -82,14 +86,57 @@ public class Game {
                 frame.add(controlScreen);
                 break;
             case "Level":
+                System.out.println(world.islevel1Complete());
                 frame.add(levelScreen);
                 break;
-            case "Level1":
-                world.strt();
+            case "Game":
+                world.reinitialise();
+                world.levelcomplete = false;
                 frame.add(view);
                 view.requestFocus();
                 break;
-        }frame.revalidate();
+            case "End":
+                plainworld.start();
+                frame.add(endscreen);
+        }
+        frame.repaint();
+        frame.revalidate();
+    }
+    public void levelComplete(){
+        if (world instanceof Level1){
+            world.level1Complete();
+            levelScreen.setLevel1complete();
+            nextScreen("Game", "Level");
+        }else if (world instanceof  Level2){
+            world.level2Complete();
+            levelScreen.setLevel2complete();
+            nextScreen("Game", "Level");
+        }else if (world instanceof Level3){
+            nextScreen("Game", "End");
+        }
+        //levelScreen.requestFocus();
+        //levelScreen.revalidate();
+
+    }
+    public void nextLevel(String level){
+        world.stop();
+        System.out.println(world.getPlayer().getCredits());
+        switch(level){
+            case "Level1":
+                world = new Level1(this, world.getPlayer().getCredits(), world.getPlayer().getScore(), world.islevel1Complete(), world.islevel2Complete());
+                break;
+            case "Level2":
+                world = new Level2(this, world.getPlayer().getCredits(), world.getPlayer().getScore(), world.islevel1Complete(), world.islevel2Complete());
+                break;
+            case "Level3":
+                world = new Level3(this, world.getPlayer().getCredits(), world.getPlayer().getScore(), world.islevel1Complete(), world.islevel2Complete());
+                break;
+        }
+        world.getPlayer().setCredits(world.getsavedStats()[1]);
+        view = new GameView(world);
+        view.addKeyListener(controller);
+        controller.Update(world.getPlayer(), world);
+        world.start();
     }
 
     public GameLevel getWorld(){

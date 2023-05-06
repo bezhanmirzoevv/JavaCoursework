@@ -8,16 +8,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Player extends Walker implements ActionListener {
+    private GameLevel world;
     public boolean reset = false;
     private int score;
     private int credits=0;
     public int scoremultiplier = 1;
     public float gameSpeed = -0.25f;
     public boolean gameover = false;
+    private boolean roundComplete = false;
     public boolean doublejump = true;
     public int doubleJumpCoolDown = 0;
     public int speed = 150;
     public boolean sliding = false;
+    private float slidingtimer = 0;
     public boolean jump = false;
     public Timer timer = new Timer(speed, this);
     public boolean gamerunning = false;
@@ -47,26 +50,30 @@ public class Player extends Walker implements ActionListener {
     private static BodyImage playerImage = new BodyImage(runImages[runImagePointer], 4);
     private static BodyImage IdleImage = new BodyImage("data/playerImages/Idle0.png", 4);
 
-    public Player(World world) {
+    public Player(GameLevel world) {
         super(world, shape);
+        this.setAlwaysOutline(true);
         addImage(IdleImage);
         this.score = 0;
         this.setGravityScale(3);
         timer.start();
+        this.world = world;
     }
 
     public void playerReset(){
         this.gamerunning = false;
         this.gameover = false;
-        this.credits = 0;
-        this.score = 0;
+        this.credits = world.getsavedStats()[1];
+        this.score = world.getsavedStats()[0];
         jumpImagePointer = 0;
         runImagePointer = 0;
         deadImagePointer = 0;
+        slideImagePointer = 0;
     };
     public int getScore() {
         return score;
     }
+    public void setScore(int score){this.score = score;}
     public void increaseScore() {
         this.score+=1*scoremultiplier;
     }
@@ -94,9 +101,11 @@ public class Player extends Walker implements ActionListener {
 
         }else if (pointer == "slideImagePointer"){
             if (slideImagePointer == slideImages.length - 1) {
-                slideImagePointer = 0;
-                this.jump = false;
-                this.rotate((float)Math.toRadians(90));
+                if (slidingtimer==4) {
+                    slideImagePointer = 0;
+                    world.playerRotate();
+                    this.slidingtimer = 0;
+                }
             } else {
                 slideImagePointer += 1;
             }
@@ -117,10 +126,13 @@ public class Player extends Walker implements ActionListener {
             }
         }
         removeAllImages();
+        System.out.println(sliding);
         if (sliding){
             //slide function
-            setImagePointer("jumpImagePointer");
+            setImagePointer("slideImagePointer");
             playerImage = new BodyImage(slideImages[slideImagePointer], 4);
+            slidingtimer+=1;
+
         } else if(jump){
             //jump images
             setImagePointer("jumpImagePointer");

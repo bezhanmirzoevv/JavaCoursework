@@ -11,7 +11,8 @@ public class GameView extends UserView implements StepListener {
 
     private GameLevel world;
     private final Image fullbackground = new ImageIcon("data/Level1Background/fullbackground.png").getImage();
-    private double cloudx, cloud2x, tree1x, tree2x, mountain1x, mountain2x;
+    private double background2x, background2_2x, background3x, background3_2x, background1x, background1_2x;
+    private double gamespeed = 1;
     private Graphics2D g = new draw();
     private final Image [] doublejumpImages = {new ImageIcon("data/powerups/doublejump.png").getImage(),
             new ImageIcon("data/powerups/doublejump_black.png").getImage()};
@@ -20,30 +21,26 @@ public class GameView extends UserView implements StepListener {
             new ImageIcon("data/powerups/doublescore1.png").getImage(),
             new ImageIcon("data/powerups/doublescore2.png").getImage()};
     private final Image scorecounter = new ImageIcon("data/scorecounter.png").getImage();
-    private final Image clouds = new ImageIcon("data/Level1Background/clouds.png").getImage();
-    private final Image trees1 = new ImageIcon("data/Level1Background/trees1.png").getImage();
-    private final Image trees2 = new ImageIcon("data/Level1Background/trees2.png").getImage();
-    private final Image background = new ImageIcon("data/Level1Background/background.png").getImage();
     public GameView(GameLevel w){
         super(w, 1000, 500);
         world = w;
         world.addStepListener(this);
-        cloudx = 0;
-        cloud2x = 1000;
-        tree1x = 0;
-        tree2x = 1000;
-        mountain1x = 0;
-        mountain2x = 1000;
+        background2x = 0;
+        background2_2x = 1000;
+        background3x = 0;
+        background3_2x = 1000;
+        background1x = 0;
+        background1_2x = 1000;
     }
 
     @Override
     protected void paintBackground(Graphics2D g){
-        g.drawImage(background, (int) mountain1x, 0,1000,500, this);
-        g.drawImage(background, (int) mountain2x, 0, 1000, 500, this);
-        g.drawImage(clouds, (int) cloudx, 0, 1000, 500, this);
-        g.drawImage(clouds, (int) cloud2x, 0, 1000, 500, this);
-        g.drawImage(trees1, (int) tree1x, 0, 1000, 500, this);
-        g.drawImage(trees2, (int) tree2x, 0, 1000, 500, this);
+        g.drawImage(world.getBackground()[0], (int) background1x, 0,1000,500, this);
+        g.drawImage(world.getBackground()[0], (int) background1_2x, 0, 1000, 500, this);
+        g.drawImage(world.getBackground()[1], (int) background2x, 0, 1000, 500, this);
+        g.drawImage(world.getBackground()[1], (int) background2_2x, 0, 1000, 500, this);
+        g.drawImage(world.getBackground()[2], (int) background3x, 0, 1000, 500, this);
+        g.drawImage(world.getBackground()[3], (int) background3_2x, 0, 1000, 500, this);
         //g.drawImage(fullbackground, 0, 0, 1000, 500, this);
 
     }
@@ -80,48 +77,48 @@ public class GameView extends UserView implements StepListener {
         }
         if (world.getPlayer().gameover){
             g.setFont(new Font("Ninjastrike", Font.PLAIN, 100));
-            g.drawString("GameOver", 250, 250);
+            g.drawString("GameOver", 300, 250);
             g.setFont(new Font("Ninjastrike", Font.PLAIN, 50));
-            g.drawString("R to restart", 300, 300);
+            g.drawString("R to restart", 350, 300);
         }
     }
 
     @Override
     public void preStep(StepEvent stepEvent) {
         if (world.getPlayer().reset){
-            cloudx = 0;
-            cloud2x = 1000;
-            tree1x = 0;
-            tree2x = 1000;
-            mountain1x = 0;
-            mountain2x = 1000;
+            background2x = 0;
+            background2_2x = 1000;
+            background3x = 0;
+            background3_2x = 1000;
+            background1x = 0;
+            background1_2x = 1000;
         }
         //System.out.println(getMousePosition());
-        if (world.getPlayer().gamerunning || world.getPlayer().getLinearVelocity().x > 0) {
-            if (tree1x == -1000.0) {
-                tree1x = 1000;
+        if ((world.getPlayer().gamerunning || world.getPlayer().getLinearVelocity().x > 0) && !world.levelcomplete) {
+            if (background3x == -1000.0) {
+                background3x = 1000;
             }
-            if (tree2x == -1000.0) {
-                tree2x = 1000;
+            if (background3_2x == -1000.0) {
+                background3_2x = 1000;
             }
-            if (mountain1x < -1000.0) {
-                mountain1x = 1000;
+            if (background1x < -1000.0) {
+                background1x = 1000;
             }
-            if (mountain2x < -1000.0) {
-                mountain2x = 1000;
+            if (background1_2x < -1000.0) {
+                background1_2x = 1000;
             }
-            if (cloudx < -1000.0) {
-                cloudx = 1000;
+            if (background2x < -1000.0) {
+                background2x = 1000;
             }
-            if (cloud2x < -1000.0) {
-                cloud2x = 1000;
+            if (background2_2x < -1000.0) {
+                background2_2x = 1000;
             }
-            mountain1x -= 0.1;
-            mountain2x -= 0.1;
-            tree1x -= 0.5;
-            tree2x -= 0.5;
-            cloudx -= 0.2;
-            cloud2x -= 0.2;
+            background1x -= 0.1*gamespeed;
+            background1_2x -= 0.1*gamespeed;
+            background3x -= 0.5*gamespeed;
+            background3_2x -= 0.5*gamespeed;
+            background2x -= 0.2*gamespeed;
+            background2_2x -= 0.2*gamespeed;
             paintBackground(g);
             paintForeground(g);
         }
@@ -129,5 +126,13 @@ public class GameView extends UserView implements StepListener {
 
     @Override
     public void postStep(StepEvent stepEvent) {}
+
+    public void setGamespeed(int a){
+        this.gamespeed = a;
+    }
+    public void Update(GameLevel w) {
+        world = w;
+        world.addStepListener(this);
+    }
 }
 

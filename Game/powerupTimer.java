@@ -16,7 +16,7 @@ public class powerupTimer implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (powerup == "doublescore"){
-            player.scoremultiplier = 1;
+            player.scoremultiplier = 2;
         }else{
 
         }
