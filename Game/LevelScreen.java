@@ -14,7 +14,7 @@ public class LevelScreen extends UserView {
     private JButton level2button;
     private JButton level3button;
     private boolean level1complete = false;
-    private boolean level2complete = true;
+    private boolean level2complete = false;
     private GameLevel w;
 
     public LevelScreen(GameLevel world, Game g){

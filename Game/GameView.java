@@ -92,14 +92,6 @@ public class GameView extends UserView implements StepListener {
 
     @Override
     public void preStep(StepEvent stepEvent) {
-        if (world.getPlayer().reset){
-            background2x = 0;
-            background2_2x = 1000;
-            background3x = 0;
-            background3_2x = 1000;
-            background1x = 0;
-            background1_2x = 1000;
-        }
         //System.out.println(getMousePosition());
         if ((world.getPlayer().gamerunning || world.getPlayer().getLinearVelocity().x > 0) && !world.levelcomplete) {
             if (background3x == -1000.0) {
@@ -134,21 +126,22 @@ public class GameView extends UserView implements StepListener {
 
     @Override
     public void postStep(StepEvent stepEvent) {
-        if (world.getPlayer().getgamespeed() == -0.7f){
-            this.gamespeed = 1.3;
-        }else if (world.getPlayer().getgamespeed() == -0.9f){
+        if (world.getPlayer().getgamespeed() == -1f){
             this.gamespeed = 1.7;
-        }else if (world.getPlayer().getgamespeed() == -1.4f) {
-            this.gamespeed = 2.4;
+        }else if (world.getPlayer().getgamespeed() == -1.5f){
+            this.gamespeed = 2;
+        }else if (world.getPlayer().getgamespeed() == -2.5f) {
+            this.gamespeed = 3;
         }
     }
 
-    public void setGamespeed(int a){
-        this.gamespeed = a;
-    }
-    public void Update(GameLevel w) {
-        world = w;
-        world.addStepListener(this);
+    public void backgroundreset(){
+        background2x = 0;
+        background2_2x = 1000;
+        background3x = 0;
+        background3_2x = 1000;
+        background1x = 0;
+        background1_2x = 1000;
     }
 }
 

@@ -12,7 +12,6 @@ public class Collision implements CollisionListener {
     }
 
     public void collide(CollisionEvent collisionEvent) {
-        //System.out.println("Collision with " + collisionEvent.getOtherBody());
         if (collisionEvent.getOtherBody() instanceof Platform || collisionEvent.getOtherBody().getName() == "ground"){
             player.jump = false;
         }
@@ -27,7 +26,6 @@ public class Collision implements CollisionListener {
             collisionEvent.getOtherBody().setPosition(new Vec2(29f, -9.5f));
         }else if (collisionEvent.getOtherBody() instanceof Obstacle && !player.gamerunning){
             collisionEvent.getOtherBody().setPosition(new Vec2(32f, -9.5f));
-            //System.out.println("fml");
         }
     }
 

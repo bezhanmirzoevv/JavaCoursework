@@ -85,11 +85,9 @@ public class Game {
                 frame.add(controlScreen);
                 break;
             case "Level":
-                System.out.println(world.islevel1Complete());
                 frame.add(levelScreen);
                 break;
             case "Game":
-                world.reinitialise();
                 world.levelcomplete = false;
                 frame.add(view);
                 view.requestFocus();
@@ -139,6 +137,7 @@ public class Game {
     public GameLevel getWorld(){
         return world;
     }
+    public GameView getView(){return this.view;}
 
 
     /** Run the game. */

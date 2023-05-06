@@ -51,9 +51,10 @@ public class Controller implements KeyListener {
                 }
                 break;
             case KeyEvent.VK_R:
-                if (player.gameover) {
+                if (player.gameover || !player.gamerunning) {
                     world.reset();
                 }
+                break;
             case KeyEvent.VK_ENTER:
                 if ((world instanceof Level1 && player.getScore()>=20) ||
                         (world instanceof Level2 && player.getScore()>=50) ||
@@ -61,18 +62,19 @@ public class Controller implements KeyListener {
                     //have player run off screen then start next level
                     player.gamerunning = false;
                     world.levelcomplete = true;
-                    player.startWalking(10);
+                    player.startWalking(20);
                 }
                 break;
 
             case KeyEvent.VK_P:
-                System.out.println("working");
-                player.paused = true;
-                player.gamerunning = false;
-                player.stopWalking();
-                if (!player.gamerunning && player.paused){
+                if (player.gamerunning) {
+                    player.stopWalking();
+                    player.paused = true;
+                    player.gamerunning = false;
+                    System.out.println(player.gamerunning);
+                }else if (!player.gamerunning){
                     player.paused = false;
-                    //player.gamerunning = true;
+                    player.gamerunning = true;
                 }
                 break;
             case KeyEvent.VK_7:
@@ -90,7 +92,6 @@ public class Controller implements KeyListener {
     @Override
     public void keyReleased(KeyEvent keys){
         int key = keys.getKeyCode();
-        //System.out.println("Key released " + keys.getKeyChar());
         if (key == KeyEvent.VK_D) {
             player.stopWalking();
         } else if (key == KeyEvent.VK_A){

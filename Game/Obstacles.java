@@ -92,7 +92,7 @@ public class Obstacles implements StepListener, ActionListener {
         if (player.gamerunning){
             scorecounter += 1;
             for (int i = 0; i < activeObstacles.size(); i++){
-                activeObstacles.get(i).setPosition(new Vec2(activeObstacles.get(i).getPosition().x +player.getgamespeed(),
+                activeObstacles.get(i).setPosition(new Vec2(activeObstacles.get(i).getPosition().x +world.getPlayer().getgamespeed(),
                         activeObstacles.get(i).getPosition().y));
                 if (activeObstacles.get(i).getPosition().x < -29f){
                     activeObstacles.get(i).setPosition(new Vec2(29f, activeObstacles.get(i).getPosition().y));
@@ -151,6 +151,5 @@ public class Obstacles implements StepListener, ActionListener {
         //initilising platforms
         platform1.setPosition(new Vec2(29f, -4f));
         platform2.setPosition(new Vec2(29f, -4f));
-        player.reset = false;
     };
 }

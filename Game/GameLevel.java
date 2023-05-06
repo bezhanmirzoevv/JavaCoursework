@@ -15,6 +15,7 @@ public abstract class GameLevel extends World implements StepListener{
     private boolean level1;
     private boolean level2;
     private Player player;
+    private Collision collisionListener;
     private int savedscore;
     private int savedcredits;
     private Game game;
@@ -34,7 +35,7 @@ public abstract class GameLevel extends World implements StepListener{
         level2 = level2complete;
 
 
-        Collision collisionListener = new Collision(player);
+        collisionListener = new Collision(player);
         player.addCollisionListener(collisionListener);
 
         movingObstacles = new Obstacles(this, player);
@@ -74,7 +75,7 @@ public abstract class GameLevel extends World implements StepListener{
             player.gameover = true;
             player.gamerunning = false;
         }
-        if (player.getPosition().x > -15 && !levelcomplete){
+        if (player.getPosition().x > -15 && !levelcomplete && !player.paused && !player.gameover){
             player.stopWalking();
             player.setLinearVelocity(new Vec2(0, player.getLinearVelocity().y));
             player.gamerunning = true;
@@ -91,13 +92,13 @@ public abstract class GameLevel extends World implements StepListener{
         }
     }
     public void reset(){
-        player.reset = true;
         player.playerReset();
         movingObstacles.reset();
-        reinitialise();
-        System.out.println(player.getPosition());
-        this.getDynamicBodies().get(0).destroy();
+        game.getView().backgroundreset();
+        game.getWorld().reinitialise();
+        //this.getDynamicBodies().get(0).destroy();
         game.getFrame().repaint();
+        game.getFrame().revalidate();
     }
 
     public abstract void reinitialise();

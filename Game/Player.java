@@ -10,7 +10,6 @@ import java.awt.image.BufferedImage;
 
 public class Player extends Walker implements ActionListener, StepListener{
     private GameLevel world;
-    public boolean reset = false;
     public boolean paused = false;
     private int score;
     private int credits=0;
@@ -67,6 +66,7 @@ public class Player extends Walker implements ActionListener, StepListener{
         this.gameover = false;
         this.credits = world.getsavedStats()[1];
         this.score = world.getsavedStats()[0];
+        addImage(IdleImage);
         jumpImagePointer = 0;
         runImagePointer = 0;
         deadImagePointer = 0;
@@ -88,14 +88,14 @@ public class Player extends Walker implements ActionListener, StepListener{
 
     public void setImagePointer(String pointer) {
         if (pointer == "runImagePointer") {
-            jumpImagePointer = 0;
-            slideImagePointer = 0;
+            //jumpImagePointer = 0;
             if (runImagePointer == runImages.length - 1) {
                 runImagePointer = 0;
             } else {
                 runImagePointer += 1;
             }
         }else if (pointer == "jumpImagePointer"){
+            System.out.println(jumpImagePointer);
             if (jumpImagePointer == jumpImages.length - 1) {
                 jumpImagePointer = 0;
             } else {
@@ -106,7 +106,6 @@ public class Player extends Walker implements ActionListener, StepListener{
             if (slideImagePointer == slideImages.length - 1) {
                 if (slidingtimer==4) {
                     slideImagePointer = 0;
-                    //world.playerRotate();
                     this.slidingtimer = 0;
                 }
             } else {
@@ -123,7 +122,6 @@ public class Player extends Walker implements ActionListener, StepListener{
         if (!(doublejump) ) {
             doubleJumpCoolDown += 1;
             if (doubleJumpCoolDown == 15) {
-                System.out.println("doublejump replenished");
                 this.doublejump = true;
                 doubleJumpCoolDown = 0;
             }
@@ -140,11 +138,11 @@ public class Player extends Walker implements ActionListener, StepListener{
             //jump images
             setImagePointer("jumpImagePointer");
             playerImage = new BodyImage(jumpImages[jumpImagePointer], 4);
-            //addImage(playerImage);
+
         } else if (this.getLinearVelocity().x > 0 || this.gamerunning){
             setImagePointer("runImagePointer");
             playerImage = new BodyImage(runImages[runImagePointer], 4);
-            //addImage(playerImage);
+
         } else if (this.gameover){
             setImagePointer("deadImagePointer");
             playerImage = new BodyImage(deadImages[deadImagePointer], 4);
@@ -159,11 +157,11 @@ public class Player extends Walker implements ActionListener, StepListener{
     @Override
     public void postStep(StepEvent stepEvent) {
         if (this.score>30 && this.score<=50){
-            this.gameSpeed=-0.7f;
+            this.gameSpeed=-1f;
         }else if (this.score>55 && this.score<=60){
-            this.gameSpeed = -0.9f;
+            this.gameSpeed = -1.5f;
         }else if (this.score>60 && this.score<=80) {
-            this.gameSpeed = -1.4f;
+            this.gameSpeed = -2.5f;
         }
     }
 }
