@@ -29,7 +29,6 @@ public class Game {
 
 
 
-
         //view.addMouseListener(new GameView(view));
         //optional: draw a 1-metre grid over the view
         //view.setGridResolution(1);
@@ -47,7 +46,7 @@ public class Game {
         frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
-        SimulationSettings settings = new SimulationSettings(60);
+        SimulationSettings settings = new SimulationSettings(120);
 
         //Debugging view
         //JFrame debugView = new DebugViewer(world, 1000, 500);
@@ -114,25 +113,23 @@ public class Game {
         }else if (world instanceof Level3){
             nextScreen("Game", "End");
         }
-        //levelScreen.requestFocus();
-        //levelScreen.revalidate();
 
     }
     public void nextLevel(String level){
+        int credits = world.getPlayer().getCredits();
+        int score = world.getPlayer().getScore();
         world.stop();
-        System.out.println(world.getPlayer().getCredits());
         switch(level){
             case "Level1":
-                world = new Level1(this, world.getPlayer().getCredits(), world.getPlayer().getScore(), world.islevel1Complete(), world.islevel2Complete());
+                world = new Level1(this, credits, score, world.islevel1Complete(), world.islevel2Complete());
                 break;
             case "Level2":
-                world = new Level2(this, world.getPlayer().getCredits(), world.getPlayer().getScore(), world.islevel1Complete(), world.islevel2Complete());
+                world = new Level2(this, credits, score, world.islevel1Complete(), world.islevel2Complete());
                 break;
             case "Level3":
-                world = new Level3(this, world.getPlayer().getCredits(), world.getPlayer().getScore(), world.islevel1Complete(), world.islevel2Complete());
+                world = new Level3(this, credits, score, world.islevel1Complete(), world.islevel2Complete());
                 break;
         }
-        world.getPlayer().setCredits(world.getsavedStats()[1]);
         view = new GameView(world);
         view.addKeyListener(controller);
         controller.Update(world.getPlayer(), world);
@@ -146,7 +143,9 @@ public class Game {
 
     /** Run the game. */
     public static void main(String[] args) {
-
+        System.out.println("****FOR THE MARKER TO READ***");
+        System.out.println("The levels are long so if you dont have time, " +
+                "you can press 7 on the keyboard to increase the players score and pass the level");
         new Game();
     }
 }

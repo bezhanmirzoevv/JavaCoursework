@@ -10,7 +10,7 @@ import java.awt.*;
 public class GameView extends UserView implements StepListener {
 
     private GameLevel world;
-    private final Image fullbackground = new ImageIcon("data/Level1Background/fullbackground.png").getImage();
+    private final Image pausebackground = new ImageIcon("data/Screens/PauseScreen.png").getImage();
     private double background2x, background2_2x, background3x, background3_2x, background1x, background1_2x;
     private double gamespeed = 1;
     private Graphics2D g = new draw();
@@ -47,6 +47,9 @@ public class GameView extends UserView implements StepListener {
     @Override
     protected void paintForeground(Graphics2D g){
         g.setFont(new Font("Ninjastrike", Font.PLAIN, 30));
+        if (world instanceof Level2 || world instanceof Level3) {
+            g.setPaint(new Color(255, 255, 255));
+        }
         if (world.getPlayer().doublejump) {
             g.drawImage(doublejumpImages[0], 900, 10, 90, 90, this);
         }else{
@@ -55,6 +58,7 @@ public class GameView extends UserView implements StepListener {
 
         //scorecounter
         g.drawImage(scorecounter, 425, 10, 150, 100, this);
+        g.drawString("Score:", 455, 65);
         if (world.getPlayer().getScore()<10) {
             g.drawString(Integer.toString(world.getPlayer().getScore()), 490, 90);
         }else if (world.getPlayer().getScore() <100){
@@ -79,7 +83,10 @@ public class GameView extends UserView implements StepListener {
             g.setFont(new Font("Ninjastrike", Font.PLAIN, 100));
             g.drawString("GameOver", 300, 250);
             g.setFont(new Font("Ninjastrike", Font.PLAIN, 50));
-            g.drawString("R to restart", 350, 300);
+            g.drawString("R to respawn", 350, 300);
+        }
+        if (world.getPlayer().paused){
+            g.drawImage(pausebackground,0, 0,1000,500, this);
         }
     }
 
@@ -113,19 +120,28 @@ public class GameView extends UserView implements StepListener {
             if (background2_2x < -1000.0) {
                 background2_2x = 1000;
             }
-            background1x -= 0.1*gamespeed;
-            background1_2x -= 0.1*gamespeed;
-            background3x -= 0.5*gamespeed;
-            background3_2x -= 0.5*gamespeed;
-            background2x -= 0.2*gamespeed;
-            background2_2x -= 0.2*gamespeed;
+
+            background1x -= 0.1;
+            background1_2x -= 0.1;
+            background3x -= 1;
+            background3_2x -= 1;
+            background2x -= 0.2;
+            background2_2x -= 0.2;
             paintBackground(g);
             paintForeground(g);
         }
     }
 
     @Override
-    public void postStep(StepEvent stepEvent) {}
+    public void postStep(StepEvent stepEvent) {
+        if (world.getPlayer().getgamespeed() == -0.7f){
+            this.gamespeed = 1.3;
+        }else if (world.getPlayer().getgamespeed() == -0.9f){
+            this.gamespeed = 1.7;
+        }else if (world.getPlayer().getgamespeed() == -1.4f) {
+            this.gamespeed = 2.4;
+        }
+    }
 
     public void setGamespeed(int a){
         this.gamespeed = a;

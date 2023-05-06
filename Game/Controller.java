@@ -1,5 +1,6 @@
 package Game;
 
+import city.cs.engine.BoxShape;
 import org.jbox2d.common.Vec2;
 
 import java.awt.event.KeyEvent;
@@ -38,10 +39,9 @@ public class Controller implements KeyListener {
                 }
                 break;
             case KeyEvent.VK_S:
-                //if (world.islevel1Complete() && !player.sliding) {
-                if (!player.sliding){
+                if (world.islevel1Complete() && !player.sliding) {
                     player.sliding = true;
-                    player.rotate((float) Math.toRadians(-270));
+                    player.rotate((float) Math.toRadians(270));
                 }
             case KeyEvent.VK_1:
                 if (player.getCredits()>=5) {
@@ -62,6 +62,17 @@ public class Controller implements KeyListener {
                     player.gamerunning = false;
                     world.levelcomplete = true;
                     player.startWalking(10);
+                }
+                break;
+
+            case KeyEvent.VK_P:
+                System.out.println("working");
+                player.paused = true;
+                player.gamerunning = false;
+                player.stopWalking();
+                if (!player.gamerunning && player.paused){
+                    player.paused = false;
+                    //player.gamerunning = true;
                 }
                 break;
             case KeyEvent.VK_7:
@@ -87,8 +98,13 @@ public class Controller implements KeyListener {
         } else if (key == KeyEvent.VK_SPACE){
             //player.jump = false;
         } else if (key == KeyEvent.VK_S){
+            if (player.sliding) {
+                player.jump(2);
+                for (int i = 0; i < 5; i++) {
+                    player.rotate((float) Math.toRadians(-270));
+                }
+            }
             player.sliding = false;
-            //player.rotate((float) Math.toRadians(-270));
         }
     }
     public void Update(Player player, GameLevel world){

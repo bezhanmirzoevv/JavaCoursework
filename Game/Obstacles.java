@@ -92,7 +92,7 @@ public class Obstacles implements StepListener, ActionListener {
         if (player.gamerunning){
             scorecounter += 1;
             for (int i = 0; i < activeObstacles.size(); i++){
-                activeObstacles.get(i).setPosition(new Vec2(activeObstacles.get(i).getPosition().x +player.gameSpeed,
+                activeObstacles.get(i).setPosition(new Vec2(activeObstacles.get(i).getPosition().x +player.getgamespeed(),
                         activeObstacles.get(i).getPosition().y));
                 if (activeObstacles.get(i).getPosition().x < -29f){
                     activeObstacles.get(i).setPosition(new Vec2(29f, activeObstacles.get(i).getPosition().y));
@@ -108,25 +108,35 @@ public class Obstacles implements StepListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        float position = random.nextInt(2);
+        if (world instanceof Level2 || world instanceof Level3) {
+            if (position == 1) {
+                position = random.nextFloat(-9.5f, -8f);
+            } else {
+                position = random.nextFloat(-7f, -6f);
+            }
+        }else {
+            position = random.nextFloat(-9.5f, -7f);
+        }
         if (i == 0 && activeObstacles.contains(obstacle1) == false) {
             activeObstacles.add(obstacle1);
             obstacle1.timer.start();
-            obstacle1.setPosition(new Vec2(29f, random.nextFloat(-9.5f, -7f)));
+            obstacle1.setPosition(new Vec2(29f, position));
             i++;
         } else if (i == 1 && activeObstacles.contains(obstacle2) == false) {
             activeObstacles.add(obstacle2);
             obstacle2.timer.start();
-            obstacle2.setPosition(new Vec2(29f, random.nextFloat(-9.5f, -7f)));
+            obstacle2.setPosition(new Vec2(29f, position));
             i++;
         } else if (i == 2 && activeObstacles.contains(obstacle3) == false) {
             activeObstacles.add(obstacle3);
             obstacle3.timer.start();
-            obstacle3.setPosition(new Vec2(29f, random.nextFloat(-9.5f, -7f)));
+            obstacle3.setPosition(new Vec2(29f, position));
             i++;
         } else if (i == 3 && activeObstacles.contains(obstacle4) == false) {
             activeObstacles.add(obstacle4);
             obstacle4.timer.start();
-            obstacle4.setPosition(new Vec2(29f, random.nextFloat(-9.5f, -7f)));
+            obstacle4.setPosition(new Vec2(29f, position));
             i = 0;
         }
         timer.stop();

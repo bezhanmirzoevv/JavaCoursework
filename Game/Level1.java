@@ -14,7 +14,7 @@ public class Level1 extends GameLevel {
     private final Image background3_1 = new ImageIcon("data/Level1Background/trees1.png").getImage();
     private final Image background3_2 = new ImageIcon("data/Level1Background/trees2.png").getImage();
     private final Image background1 = new ImageIcon("data/Level1Background/background.png").getImage();
-    public Level1(Game g, int playercredits,int playerScore, boolean level1complete, boolean level2complete){
+    public Level1(Game g, int playercredits, int playerScore, boolean level1complete, boolean level2complete){
         super(g,playercredits,playerScore, level1complete,level2complete);
 
         //setting the ground
@@ -41,10 +41,5 @@ public class Level1 extends GameLevel {
     @Override
     public BodyImage[] getPlatform(){
         return new BodyImage[]{Platform};
-    }
-    public void nexLevel(){
-        if (getPlayer().getScore()>100){
-
-        }
     }
 }

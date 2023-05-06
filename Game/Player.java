@@ -6,16 +6,17 @@ import org.jbox2d.common.Vec2;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
-public class Player extends Walker implements ActionListener {
+public class Player extends Walker implements ActionListener, StepListener{
     private GameLevel world;
     public boolean reset = false;
+    public boolean paused = false;
     private int score;
     private int credits=0;
     public int scoremultiplier = 1;
-    public float gameSpeed = -0.25f;
+    private float gameSpeed = -0.25f;
     public boolean gameover = false;
-    private boolean roundComplete = false;
     public boolean doublejump = true;
     public int doubleJumpCoolDown = 0;
     public int speed = 150;
@@ -42,17 +43,18 @@ public class Player extends Walker implements ActionListener {
             "data/playerImages/Jump8.png", "data/playerImages/Jump9.png"};
 
     private static int slideImagePointer = 0;
-    private static String[] slideImages = {"data/playerImages/Slide0.png", "data/playerImages/Slide1.png",
+    private static String[] slideImages = {"data/playerImages/Slide0.png"};/*, "data/playerImages/Slide1.png",
             "data/playerImages/Slide2.png", "data/playerImages/Slide3.png", "data/playerImages/Slide4.png",
             "data/playerImages/Slide5.png", "data/playerImages/Slide6.png", "data/playerImages/Slide7.png",
-            "data/playerImages/Slide8.png", "data/playerImages/Slide9.png"};
+            "data/playerImages/Slide8.png", "data/playerImages/Slide9.png"};*/
 
     private static BodyImage playerImage = new BodyImage(runImages[runImagePointer], 4);
     private static BodyImage IdleImage = new BodyImage("data/playerImages/Idle0.png", 4);
 
+
     public Player(GameLevel world) {
         super(world, shape);
-        this.setAlwaysOutline(true);
+        //this.setAlwaysOutline(true);
         addImage(IdleImage);
         this.score = 0;
         this.setGravityScale(3);
@@ -81,7 +83,8 @@ public class Player extends Walker implements ActionListener {
         this.credits++;
     }
     public int getCredits(){return this.credits;}
-    public void setCredits(int a){this.credits-=a;}
+    public void setCredits(int a){this.credits=a;}
+    public float getgamespeed(){return this.gameSpeed;}
 
     public void setImagePointer(String pointer) {
         if (pointer == "runImagePointer") {
@@ -103,7 +106,7 @@ public class Player extends Walker implements ActionListener {
             if (slideImagePointer == slideImages.length - 1) {
                 if (slidingtimer==4) {
                     slideImagePointer = 0;
-                    world.playerRotate();
+                    //world.playerRotate();
                     this.slidingtimer = 0;
                 }
             } else {
@@ -126,10 +129,10 @@ public class Player extends Walker implements ActionListener {
             }
         }
         removeAllImages();
-        System.out.println(sliding);
         if (sliding){
             //slide function
             setImagePointer("slideImagePointer");
+            //playerImage = new AttachedImage()
             playerImage = new BodyImage(slideImages[slideImagePointer], 4);
             slidingtimer+=1;
 
@@ -149,5 +152,18 @@ public class Player extends Walker implements ActionListener {
             playerImage = IdleImage;
         }
         addImage(playerImage);
+    }
+    @Override
+    public void preStep(StepEvent stepEvent) {}
+
+    @Override
+    public void postStep(StepEvent stepEvent) {
+        if (this.score>30 && this.score<=50){
+            this.gameSpeed=-0.7f;
+        }else if (this.score>55 && this.score<=60){
+            this.gameSpeed = -0.9f;
+        }else if (this.score>60 && this.score<=80) {
+            this.gameSpeed = -1.4f;
+        }
     }
 }

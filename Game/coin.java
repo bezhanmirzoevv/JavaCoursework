@@ -46,7 +46,7 @@ public class coin extends DynamicBody implements ActionListener, StepListener {
     @Override
     public void postStep(StepEvent stepEvent) {
         if (player.gamerunning) {
-            this.setPosition(new Vec2(this.getPosition().x + player.gameSpeed, this.getPosition().y));
+            this.setPosition(new Vec2(this.getPosition().x + player.getgamespeed(), this.getPosition().y));
         }
     }
 }

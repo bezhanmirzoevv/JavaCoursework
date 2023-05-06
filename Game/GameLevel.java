@@ -86,8 +86,8 @@ public abstract class GameLevel extends World implements StepListener{
             if (ground2.getPosition().x < -54f){
                 ground2.setPosition(new Vec2(50f, ground2.getPosition().y));
             }
-            ground.setPosition(new Vec2(ground.getPosition().x+player.gameSpeed, ground.getPosition().y));
-            ground2.setPosition(new Vec2(ground2.getPosition().x+player.gameSpeed, ground2.getPosition().y));
+            ground.setPosition(new Vec2(ground.getPosition().x+player.getgamespeed(), ground.getPosition().y));
+            ground2.setPosition(new Vec2(ground2.getPosition().x+player.getgamespeed(), ground2.getPosition().y));
         }
     }
     public void reset(){
@@ -104,9 +104,5 @@ public abstract class GameLevel extends World implements StepListener{
     public abstract Image[] getBackground();
     public BodyImage[] getPlatform(){
         return null;
-    }
-    public void playerRotate(){
-        player.sliding=false;
-        player.rotate((float) Math.toRadians(90));
     }
 }
