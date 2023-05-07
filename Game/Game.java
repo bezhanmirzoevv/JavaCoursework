@@ -145,6 +145,7 @@ public class Game {
         System.out.println("****FOR THE MARKER TO READ***");
         System.out.println("The levels are long so if you dont have time, " +
                 "you can press 7 on the keyboard to increase the players score and pass the level");
+        System.out.println("Once you've reached the score required to pass the level, press enter to complete it");
         new Game();
     }
 }
